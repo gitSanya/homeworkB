@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Kredit</title>
+</head>
+<body>
+
+<script>
+
+    var sum = +prompt("Enter sum"); // 100000 uah
+    var rate = +prompt("Enter rate"); //10 %/year
+    var term = +prompt("Enter period"); //6 months
+    
+    var percent = rate/(12*100);
+    var percents_month = sum * (percent+percent/(Math.pow((1+percent), term)-1));
+    percents_month = percents_month.toFixed(2);
+
+    console.log("Annuity payment:" + percents_month + " uah");
+    
+    var left = sum;
+    var real_sum = 0; 
+    for(var i=1; i <= term; i++){
+        var interest = left * (rate/100)/12; //percent part
+        interest = Number(interest.toFixed(2));
+        var debt = percents_month - interest;  // debt part
+        debt = Number(debt.toFixed(2));
+        real_sum += (interest + debt);
+        left = left - debt;
+        left = left.toFixed(2);
+        console.log(`${i} Month, Annuity payment: ${percents_month} uah, Percent: ${interest} uah, Debt: ${debt} uah`);    
+    }
+
+    console.log("Overpayment is " + (real_sum - sum).toFixed(2) + " uah");
+    
+</script>
+
+</body>
+</html>

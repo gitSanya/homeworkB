@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>table</title>
+</head>
+<body>
+<script>
+
+	var right = [];
+  
+	var wrong = [];
+  
+	var answer = [];
+
+	for(i = 0; i<12; i++) {  
+  		var x = Math.floor(Math.random() * 89 + 10); 
+  		var y = Math.floor(Math.random() * 89 + 10);
+  		var z = +prompt("Solve " + x + "*" + y + "= ?");  
+  		var a = +(x*y); 
+  
+  		if(z == a) {
+    		console.log("Correct!");
+    		right.push(+z);
+  		} else {  
+    		console.log("Not Correct");
+    		wrong.push(+z);
+    		answer.push(+a);
+  		}
+  
+  		console.log(x + "*" + y + "=" +(x*y));  
+  		console.log((11-i) + " questions left"); 
+	}
+
+	console.log("Thank you for game!");
+
+	var str = right.join(';');
+	console.log("Answers were correct:  " + str);
+
+  	for(j = 0; j<wrong.length; j++) {
+    	console.log("Answer was wrong:  " + wrong[j] + " right :" + answer[j]);
+  	}
+
+	console.log("User score is " + right.length);
+  
+ 
+   
+   
+   
+   
+   
+   
+   
+   
+	
+</script>
+</body>
+</html>
